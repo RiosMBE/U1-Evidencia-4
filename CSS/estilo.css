@@ -1,0 +1,33 @@
+#respuesta{
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    text-align: justify;
+    background-color: rgb(122, 233, 226);
+}
+.respuesta{
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    text-align: justify;
+    background-color: rgb(122, 233, 226);
+    color: snow;
+}
+.texto{
+    text-align: justify;
+    background-color: gray;
+    color: white;
+}
+html{
+    background-color: palevioletred;
+}
+.texto2{
+    text-align: justify;
+    background-color: rgb(163, 163, 163);
+    color: snow;
+}
+.numero{
+    background-color: darkslateblue;
+}

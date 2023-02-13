@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estilo.css">
+    <title>Practica 4</title>
+</head>
+<body>
+    <center>
+    <h1>Peticion de imagenes usando AJAX</h1>
+    <button id="btnCargar">Cargar información</button>
+    <br>
+    </center>
+    
+    <div id="respuesta"></div>
+    <br>
+    <br>
+</body>
+
+<script>
+    function ajax_cargar_imagenes(){
+
+    const http = new XMLHttpRequest;
+    const url = "https://jsonplaceholder.typicode.com/photos";
+
+    http.onreadystatechange = function(){
+        //validar la respuesta
+        if(this.status==200 && this.readyState == 4){
+            console.log(this.responseText);
+            let res = document.getElementById("respuesta");
+            res.innerHTML="";
+
+            //convertir en formato JSON para hacer objetos
+            const json = JSON.parse(this.responseText);
+            
+            for(const datos of json){
+
+                
+                if(datos.id <= 50){
+                    res.innerHTML += "<div class='texto2'><hr> album ID : " + datos.albumId + "<br><br>ID: " + datos.id + "<br><br>Titulo: "+ datos.title+"<br><br><a href='"+ datos.url+"'</a><img src='" + datos.thumbnailUrl + "'><br><br><hr></div>";
+                }
+                
+            }
+            
+        }
+        
+    }
+    http.open('get',url,true);
+    http.send();
+
+    }
+    document.getElementById("btnCargar").addEventListener('click',function(){
+    ajax_cargar_imagenes();
+    });
+</script>
+</html>
